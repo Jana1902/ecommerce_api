@@ -35,7 +35,6 @@ A RESTful API for an e-commerce application built with Node.js, Express, and Mon
    
    Create a `.env` file in the root directory:
    ```ini
-   PORT=5000
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret_key
    ```
@@ -44,8 +43,6 @@ A RESTful API for an e-commerce application built with Node.js, Express, and Mon
    ```bash
    npm start
    ```
-
-The API will be available at: `http://localhost:5000`
 
 ## 🛡️ Authentication & Authorization
 
@@ -59,33 +56,28 @@ The API will be available at: `http://localhost:5000`
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/users/register` | Register a new user |
-| POST | `/api/users/login` | Log in an existing user |
-| POST | `/api/users/logout` | Log out |
+| POST | `/register-user` | Register a new user |
 
 ### Products
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/products` | Create a product (admin) |
-| GET | `/api/products` | List all products |
-| GET | `/api/products/:id` | Get product details |
-| PUT | `/api/products/:id` | Update product (admin) |
-| DELETE | `/api/products/:id` | Delete product (admin) |
+| POST | `/add-product` | Create a product (admin) |
+| GET | `/products` | List all products |
+| PUT | `/update-product/:id` | Update product (admin) |
+| DELETE | `/delete-product/:id` | Delete product (admin) |
 
 ### Cart
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/carts` | Create a cart for user |
-| PUT | `/api/carts` | Update cart items |
 | DELETE | `/api/carts/items` | Remove items from the cart |
 
 ## 🔑 Environment Variables
 
 | Variable | Description |
 |----------|-------------|
-| PORT | Server port |
 | MONGO_URI | MongoDB connection string |
 | JWT_SECRET | Secret key for JWT signing |
 
@@ -104,27 +96,23 @@ The API will be available at: `http://localhost:5000`
 ```
 src/
   controllers/
-    auth.controller.js
-    product.controller.js
-    cart.controller.js
+    controller.js
   models/
     user.model.js
     product.model.js
     cart.model.js
   middleware/
     protectRoute.js
-    adminOnly.js
   routes/
     auth.route.js
     product.route.js
     cart.route.js
-  app.js
+  index.js
 ```
 
 ## ✨ Example .env
 
 ```ini
-PORT=5000
 MONGO_URI=mongodb+srv://yourusername:yourpassword@cluster.mongodb.net/ecommerce
 JWT_SECRET=your_super_secret_key
 ```
