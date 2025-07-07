@@ -11,8 +11,6 @@ A RESTful API for an e-commerce application built with Node.js, Express, and Mon
 - Password hashing with bcrypt
 - CORS support for frontend integration
 
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -20,94 +18,90 @@ A RESTful API for an e-commerce application built with Node.js, Express, and Mon
 - Node.js (v14+ recommended)
 - MongoDB Atlas or local MongoDB
 
----
-
 ### Installation
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/ecommerce-api.git
    cd ecommerce-api
-Install dependencies
+   ```
 
-bash
-Copy
-Edit
-npm install
-Environment variables
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Create a .env file in the root directory:
+3. **Environment variables**
+   
+   Create a `.env` file in the root directory:
+   ```ini
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret_key
+   ```
 
-ini
-Copy
-Edit
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-Start the server
-bash
-Copy
-Edit
-npm start
-The API will be available at:
+4. **Start the server**
+   ```bash
+   npm start
+   ```
 
-arduino
-Copy
-Edit
-http://localhost:5000
-🛡️ Authentication & Authorization
-Users must register and log in to receive a JWT token.
+The API will be available at: `http://localhost:5000`
 
-Use cookie-parser to handle JWTs in HTTP-only cookies.
+## 🛡️ Authentication & Authorization
 
-Admin-only routes are protected with middleware.
+- Users must register and log in to receive a JWT token
+- Use cookie-parser to handle JWTs in HTTP-only cookies
+- Admin-only routes are protected with middleware
 
-📚 API Endpoints
-Auth
-Method	Endpoint	Description
-POST	/api/users/register	Register a new user
-POST	/api/users/login	Log in an existing user
-POST	/api/users/logout	Log out
+## 📚 API Endpoints
 
-Products
-Method	Endpoint	Description
-POST	/api/products	Create a product (admin)
-GET	/api/products	List all products
-GET	/api/products/:id	Get product details
-PUT	/api/products/:id	Update product (admin)
-DELETE	/api/products/:id	Delete product (admin)
+### Auth
 
-Cart
-Method	Endpoint	Description
-POST	/api/carts	Create a cart for user
-PUT	/api/carts	Update cart items
-DELETE	/api/carts/items	Remove items from the cart
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/users/register` | Register a new user |
+| POST | `/api/users/login` | Log in an existing user |
+| POST | `/api/users/logout` | Log out |
 
-🔑 Environment Variables
-Variable	Description
-PORT	Server port
-MONGO_URI	MongoDB connection string
-JWT_SECRET	Secret key for JWT signing
+### Products
 
-🧰 Tech Stack
-Node.js
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/products` | Create a product (admin) |
+| GET | `/api/products` | List all products |
+| GET | `/api/products/:id` | Get product details |
+| PUT | `/api/products/:id` | Update product (admin) |
+| DELETE | `/api/products/:id` | Delete product (admin) |
 
-Express.js
+### Cart
 
-MongoDB + Mongoose
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/carts` | Create a cart for user |
+| PUT | `/api/carts` | Update cart items |
+| DELETE | `/api/carts/items` | Remove items from the cart |
 
-bcrypt
+## 🔑 Environment Variables
 
-jsonwebtoken
+| Variable | Description |
+|----------|-------------|
+| PORT | Server port |
+| MONGO_URI | MongoDB connection string |
+| JWT_SECRET | Secret key for JWT signing |
 
-cookie-parser
+## 🧰 Tech Stack
 
-cors
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- bcrypt
+- jsonwebtoken
+- cookie-parser
+- cors
 
-📂 Project Structure
-css
-Copy
-Edit
+## 📂 Project Structure
+
+```
 src/
   controllers/
     auth.controller.js
@@ -125,10 +119,12 @@ src/
     product.route.js
     cart.route.js
   app.js
-✨ Example .env
-ini
-Copy
-Edit
+```
+
+## ✨ Example .env
+
+```ini
 PORT=5000
 MONGO_URI=mongodb+srv://yourusername:yourpassword@cluster.mongodb.net/ecommerce
 JWT_SECRET=your_super_secret_key
+```
